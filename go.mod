@@ -11,4 +11,4 @@ require (
 	mosn.io/api v0.0.0-20210113033009-f24f4e59b2bc
 )
 
-replace mosn.io/api => github.com/fdingiit/api v0.0.0-20210119022920-cb7b0bf65060
+replace mosn.io/api => github.com/fdingiit/api v0.0.0-20210119060318-8895dd0239f2

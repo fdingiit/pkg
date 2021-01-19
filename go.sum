@@ -2,8 +2,8 @@ github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
-github.com/fdingiit/api v0.0.0-20210119022920-cb7b0bf65060 h1:Vlh9E5msxP6HF+6tx24ssFCuUlEyBX1FBUviNiQpY3A=
-github.com/fdingiit/api v0.0.0-20210119022920-cb7b0bf65060/go.mod h1:EtYUs3T4zU1f4LLqQd0ODRDM5qk2w/mD6ktkEie8dlI=
+github.com/fdingiit/api v0.0.0-20210119060318-8895dd0239f2 h1:5NZGSxp/5A91UGMVQmHSdhdKu9EVas39zDlebJAd6F8=
+github.com/fdingiit/api v0.0.0-20210119060318-8895dd0239f2/go.mod h1:EtYUs3T4zU1f4LLqQd0ODRDM5qk2w/mD6ktkEie8dlI=
 github.com/hashicorp/go-syslog v1.0.0 h1:KaodqZuhUoZereWVIYmpUgZysurB1kBLX2j0MwMrUAE=
 github.com/hashicorp/go-syslog v1.0.0/go.mod h1:qPfqrKkXGihmCqbJM2mZgkZGvKG1dFdvsLplgctolz4=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
