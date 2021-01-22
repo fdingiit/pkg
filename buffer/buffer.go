@@ -103,13 +103,13 @@ func (p *bufferPool) give(value interface{}) {
 	p.Put(value)
 }
 
-// bufferValue is buffer pool's Value
-type bufferValue struct {
+// BufferValue is buffer pool's Value
+type BufferValue struct {
 	value    [maxBufferPool]interface{}
 	transmit [maxBufferPool]interface{}
 }
 
-// NewBufferPoolContext returns a context with bufferValue
+// NewBufferPoolContext returns a context with BufferValue
 func NewBufferPoolContext(ctx context.Context) context.Context {
 	return mosnctx.WithValue(ctx, types.ContextKeyBufferPoolCtx, newBufferValue())
 }
@@ -125,19 +125,19 @@ func TransmitBufferPoolContext(dst context.Context, src context.Context) {
 	sValue.value = nullBufferValue
 }
 
-// newBufferValue returns bufferValue
-func newBufferValue() (value *bufferValue) {
+// newBufferValue returns BufferValue
+func newBufferValue() (value *BufferValue) {
 	v := vPool.Get()
 	if v == nil {
-		value = new(bufferValue)
+		value = new(BufferValue)
 	} else {
-		value = v.(*bufferValue)
+		value = v.(*BufferValue)
 	}
 	return
 }
 
-// Find returns buffer from bufferValue
-func (bv *bufferValue) Find(poolCtx BufferPoolCtx, x interface{}) interface{} {
+// Find returns buffer from BufferValue
+func (bv *BufferValue) Find(poolCtx BufferPoolCtx, x interface{}) interface{} {
 	i := poolCtx.Index()
 	if i <= 0 || i > int(index) {
 		panic("buffer should call buffer.RegisterBuffer()")
@@ -149,7 +149,7 @@ func (bv *bufferValue) Find(poolCtx BufferPoolCtx, x interface{}) interface{} {
 }
 
 // Take returns buffer from buffer pools
-func (bv *bufferValue) Take(poolCtx BufferPoolCtx) (value interface{}) {
+func (bv *BufferValue) Take(poolCtx BufferPoolCtx) (value interface{}) {
 	i := poolCtx.Index()
 	value = bPool[i].take()
 	bv.value[i] = value
@@ -157,7 +157,7 @@ func (bv *bufferValue) Take(poolCtx BufferPoolCtx) (value interface{}) {
 }
 
 // Give returns buffer to buffer pools
-func (bv *bufferValue) Give() {
+func (bv *BufferValue) Give() {
 	if index <= 0 {
 		return
 	}
@@ -175,15 +175,15 @@ func (bv *bufferValue) Give() {
 	bv.value = nullBufferValue
 	bv.transmit = nullBufferValue
 
-	// Give bufferValue to Pool
+	// Give BufferValue to Pool
 	vPool.Put(bv)
 }
 
-// PoolContext returns bufferValue by context
-func PoolContext(ctx context.Context) *bufferValue {
+// PoolContext returns BufferValue by context
+func PoolContext(ctx context.Context) *BufferValue {
 	if ctx != nil {
 		if val := mosnctx.Get(ctx, types.ContextKeyBufferPoolCtx); val != nil {
-			return val.(*bufferValue)
+			return val.(*BufferValue)
 		}
 	}
 	return newBufferValue()
